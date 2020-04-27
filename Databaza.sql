@@ -64,6 +64,8 @@ CREATE TABLE Lenda (
 LOCK TABLES Lenda WRITE;
 /*!40000 ALTER TABLE Lenda DISABLE KEYS */;
 INSERT INTO Lenda VALUES (12,'Arkitektura e Kompjuterve','4'),(33,'Baza e te Dhenave','3'),(20,'Elektronika','3'),(16,'Komunikimi Njeri Kompjuter','4'),(13,'Programimi ne Internet','4'),(35,'RRJETA KOMPJUTERIKE','4'),(18,'Siguria e te dhenave','4');
+ALTER table Lenda;
+INSERT INTO Lenda VALUES (17,'Matematika 3K','3'),(10,'Sinjale Dhe Sisteme','3'),(28,'Interneti','3'),(22,'POO','3'),(3,'Menaxhimi i Projekteve','4');
 /*!40000 ALTER TABLE `tbllenda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,6 +100,8 @@ CREATE TABLE Mesimi (
 LOCK TABLES Mesimi WRITE;
 /*!40000 ALTER TABLE Mesimi DISABLE KEYS */;
 INSERT INTO Mesimi VALUES (161,35,20,16,3,NULL),(163,39,33,13,3,NULL),(173,35,12,16,3,NULL),(176,38,35,14,3,12),(177,38,20,14,3,11),(179,38,20,13,5,10),(180,35,20,14,4,12),(181,35,20,14,4,9),(182,35,20,14,4,11);
+ALTER table Mesimi;
+INSERT INTO Mesimi VALUES (162,36,20,15,2,NULL),(164,36,16,17,1,NULL);
 /*!40000 ALTER TABLE Mesimi ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,6 +209,8 @@ CREATE TABLE Profesoret (
 LOCK TABLES Profesoret WRITE;
 /*!40000 ALTER TABLE Profesoret DISABLE KEYS */;
 INSERT INTO Profesoret VALUES (35,'Myzafere','Limani','617','mlimani@gmail.com'),(38,'Blerim','Rexha','712','blerimrexha@uni-pr.edu'),(39,'Lule','Ahmedi','718','luleahmedi@uni-pr.edu');
+ALTER table Profesoret;
+INSERT INTO Profesoret VALUES (36,'Isak','Shabani','701','isakshabani@uni-pr.edu'),(37,'Valon','Raca','713','valonraca@uni-pr.edu'),(40,'Qamil','Kabashi','612','qamilkabashi@uni-pr.edu');
 /*!40000 ALTER TABLE Profesoret ENABLE KEYS */;
 UNLOCK TABLES;
 
