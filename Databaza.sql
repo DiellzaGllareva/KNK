@@ -18,7 +18,11 @@ INSERT INTO Antaret VALUES (29,'diellza','gllareva','R+9hFlCtxDuEZfmcwNUFsg==','
 (32,'Elsa','Nishori','M7a05RXv5xTRzDpGo+o+hw==','M7a05RXv5xTRzDpGo+o+hw=='),
 (36,'Elire','Raci','M4gmH0Tmke1icSk/wGMNQw==','M4gmH0Tmke1icSk/wGMNQw=='),
 (37,'Ensare','Islami','0wo/a5oHxa+lyjSIs8IyBQ==','Sgx3baumNiSkHTvpUhdoMA==');
-
+ALTER TABLE Antaret;
+INSERT INTO Antaret VALUES(35,'Arita','Alidemaj','R+9uFlrtx+/EZfmcwNUFsg==','p5YwTly48N4QJfIlDSvOzg=='),
+(40,'Alina','Fazliu','B/9hFlCklsuFR+mcwNUFab==','asleTly48N4QJfIxKrvOzg=='),
+(42,'Andi','Hyseni','oPedw-yrxDuEZfmcwNUFsgoi','rcYwTly48FRTEfIxKrvOzg=='),
+(45,'Arian','Emini','sD+hflgxDuEZfmcwPossgkk','r7ytRYTE8N4QJfIxKrvOzg==');
 UNLOCK TABLES;
 
 DROP TABLE IF EXISTS Asistentet;
@@ -37,6 +41,11 @@ LOCK TABLES Asistentet WRITE;
 /*!40000 ALTER TABLE Asistentet DISABLE KEYS */;
 INSERT INTO Asistentet VALUES (17,'Vigan','Abdurrahimi','718','viganabdurrahimi@uni-pr.edu'),
 (32,'Vjosa','Shatri','476','');
+ALTER table Asistentet;
+INSERT INTO Asistentet VALUES
+(10,'Edon','Gashi','711','edongashi@uni-pr.edu'),
+(4,'Haxhi','Lajqi','712',''),
+(6,'Dardan','Shabani','703','dardanshabani@uni-pr.edu');
 /*!40000 ALTER TABLE Asistentet ENABLE KEYS */;
 UNLOCK TABLES;
 
