@@ -144,3 +144,53 @@ public class stage3admin {
 		TableColumn<String, Orari> column2 = new TableColumn<>("Lendet");
 		column2.setCellValueFactory(new PropertyValueFactory("titlenda"));
 		column2.setPrefWidth(60);
+		
+		TableColumn<String, Orari> column3 = new TableColumn<>("Ects");
+		column3.setCellValueFactory(new PropertyValueFactory("ects"));
+		column3.setPrefWidth(150);
+		
+		TableColumn<String, Orari> column4 = new TableColumn<>("Profesori");
+		column4.setCellValueFactory(new PropertyValueFactory("profcol"));
+		column4.setPrefWidth(150);
+		
+		TableColumn<String, Orari> column5 = new TableColumn<>("Assistenti");
+		column5.setCellValueFactory(new PropertyValueFactory("asscol"));
+		column5.setPrefWidth(120);
+		
+		TableColumn<String, Orari> column6 = new TableColumn<>("Dita");
+		column6.setCellValueFactory(new PropertyValueFactory("ldita"));
+		column6.setPrefWidth(120);
+		
+		TableColumn<String, Orari> column7 = new TableColumn<>("Ora");
+		column7.setCellValueFactory(new PropertyValueFactory("lora"));
+		column7.setPrefWidth(120);
+		TableColumn<String, Orari> column8 = new TableColumn<>("Salla");
+		column8.setCellValueFactory(new PropertyValueFactory("lsalla"));
+		column8.setPrefWidth(120);
+		TableColumn<String, Orari> column9 = new TableColumn<>("Dita");
+		column9.setCellValueFactory(new PropertyValueFactory("udita"));
+		column9.setPrefWidth(120);
+		TableColumn<String, Orari> column10 = new TableColumn<>("Ora");
+		column10.setCellValueFactory(new PropertyValueFactory("uora"));
+		column10.setPrefWidth(120);
+		TableColumn<String, Orari> column11 = new TableColumn<>("Salla");
+		column11.setCellValueFactory(new PropertyValueFactory("usalla"));
+		column11.setPrefWidth(120);
+		
+		teacher.getColumns().addAll(column4,column5);
+		ligjeratacol.getColumns().addAll(column6, column7, column8);
+		ushtrimecol.getColumns().addAll(column9, column10, column11);
+		
+		OrariTbl.getColumns().add(column2);
+		OrariTbl.getColumns().add(column3);
+		OrariTbl.getColumns().add(teacher);
+		OrariTbl.getColumns().add(ligjeratacol);
+		OrariTbl.getColumns().add(ushtrimecol);
+		
+		OrariTbl.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+		
+		OrariTbl.setPrefWidth(650);
+		OrariTbl.setPrefHeight(200);
+		
+		// Main Pane
