@@ -1,4 +1,4 @@
-package Application;
+package knk;
 import java.sql.*;
 import java.util.List;
 import javafx.application.Application;
@@ -39,6 +39,7 @@ public class stage3admin {
 	private static TextField departamentiField = new TextField();
 	private static TextField semField = new TextField();
 	private static TextField grupiField = new TextField();
+	
 	
 	// Buttons
 	private static Button insertBtn = new Button("Insert");
@@ -92,4 +93,54 @@ public class stage3admin {
 		
 		});
 		
+		insertBtn.setOnAction(e -> {
+			insertOrari();
+		});
 		
+		clearBtn.setOnAction(e -> {
+			clearOrari();
+		});
+		updateBtn.setOnAction(e -> {
+			updateOrari(Integer.parseInt(idField.getText()),
+						subjectField.getText(),
+					  Integer.parseInt(ectsField.getText()),
+					  profField.getText(),
+					  assField.getText(),
+					  LditaField.getText(),
+					  LoraField.getText(),
+					  Integer.parseInt(LsallaField.getText()),
+					  UditaField.getText(),
+					  UoraField.getText(),
+					  Integer.parseInt(UsallaField.getText()),
+					  nstudField.getText(),
+					  departamentiField.getText(),
+					  semField.getText(),
+					  grupiField.getText()
+					 
+					  );
+			{
+				showOrari();
+				clearOrari();
+			}
+		});
+		deleteBtn.setOnAction(e -> {
+			deleteOrari(Integer.parseInt(idField.getText()));
+		});
+		// Left Pane
+		
+		VBox leftPane = new VBox(15);
+		
+		leftPane.getChildren().addAll(formPane, buttonsPane);
+		
+		@SuppressWarnings("rawtypes")
+		TableColumn teacher = new TableColumn("Mesimdhenesi");
+		TableColumn ligjeratacol = new TableColumn("Ligjerata");
+		TableColumn ushtrimecol = new TableColumn("Ushtrime");
+		// Books table
+		TableColumn<String, Orari> column1 = new TableColumn<>("ID:");
+		column1.setCellValueFactory(new PropertyValueFactory("id"));
+		column1.setPrefWidth(60);
+		
+		TableColumn<String, Orari> column2 = new TableColumn<>("Lendet");
+		column2.setCellValueFactory(new PropertyValueFactory("titlenda"));
+		column2.setPrefWidth(60);
