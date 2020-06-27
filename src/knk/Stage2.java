@@ -49,3 +49,55 @@ public class Stage2 {
 //Niveli i studimeve		
 		private static String bachelortxt = new String("Bachelor");
 		private static String mastertxt = new String("Master");
+		//Departamentet
+				private static String autotxt = new String("Automatike");
+				private static String elektxt = new String("Elektroenergjetike");
+				private static String elektrtxt = new String("Elektronike");
+				private static String komptxt = new String("Kompjuterike");
+				private static String teletxt = new String("Telekomunikacion");
+		//Semestri
+				private static String sem1 = new String("I");
+				private static String sem2 = new String("II");
+				private static String sem3 = new String("III");
+				private static String sem4 = new String("IV");
+				private static String sem5 = new String("V");
+				private static String sem6 = new String("VI");
+		//GRUPET
+				private static String gr1 = new String("1");
+				private static String gr2 = new String("2");
+		//LLOJI 
+				private static ComboBox nstud = new ComboBox();
+				private static ComboBox departamenti = new ComboBox();
+				private static ComboBox sem = new ComboBox();
+				private static ComboBox grupi = new ComboBox();
+//				private static Text ligj = new Text("Ligjerata");
+//				private static Text usht = new Text("Ushtrime");
+				
+				public static void secondarystage(Stage stage2) throws Exception {
+				
+				mainstage = stage2;
+				
+
+				nivelistud.setStyle("-fx-font-weight:BOLD;");
+				depart.setStyle("-fx-font-weight:BOLD;");
+				semestri.setStyle("-fx-font-weight:BOLD;");
+				grupitext.setStyle("-fx-font-weight:BOLD;");
+//				tipi.setStyle("-fx-font-weight:BOLD;");
+				
+		//Krijimi i BorderPane per Background
+				BorderPane bpane = new BorderPane();
+				bpane.setPadding(new Insets(100,80,100,80));
+				bpane.setStyle("-fx-background-color:#efefef;");
+				bpane.setPrefSize(850, 470);
+				
+		//Gridpane per te vendosur combo boxes
+				GridPane gpane = new GridPane();
+				gpane.setHgap(10);
+				gpane.setVgap(15);
+				gpane.setAlignment(Pos.CENTER);
+				gpane.setPadding(new Insets(10, 30, 10, 10));
+				gpane.setPrefHeight(20);
+				gpane.setStyle("-fx-background-color:#f2f2f2;");
+				gpane.setEffect(new DropShadow(8,Color.BLACK));
+				gpane.setMinHeight(300);
+				gpane.setMinWidth(830);
