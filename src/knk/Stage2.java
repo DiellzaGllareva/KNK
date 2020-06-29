@@ -101,3 +101,69 @@ public class Stage2 {
 				gpane.setEffect(new DropShadow(8,Color.BLACK));
 				gpane.setMinHeight(300);
 				gpane.setMinWidth(830);
+					//COMBO BOXES 
+		nstud.getItems().clear(); 
+		nstud.setPromptText("Niveli i studimeve");
+		nstud.setPrefWidth(190);
+		nstud.getItems().addAll(
+			bachelortxt,
+			mastertxt
+		);
+		
+		departamenti.getItems().clear(); 
+		departamenti.setPromptText("Departamenti");
+		departamenti.setPrefWidth(170);
+		departamenti.getItems().addAll(
+			autotxt,
+			elektxt,
+			elektrtxt,
+			komptxt,
+			teletxt
+		);
+		
+		sem.getItems().clear(); 
+		sem.setPromptText("Semestri");
+		sem.setPrefWidth(150);
+		sem.getItems().addAll(
+			sem1,
+			sem2,
+			sem3,
+			sem4,
+			sem5,
+			sem6
+		);
+		
+		grupi.getItems().clear(); 
+		grupi.setPromptText("Grupi");
+		grupi.setPrefWidth(120);
+		grupi.getItems().addAll(
+			gr1,
+			gr2
+		);
+//Butoni vazhdo dhe event handlers
+		
+		nextbtn.setText("Vazhdo");
+		nextbtn.setStyle("-fx-font-size:15;-fx-background-color:#8e1c1c;-fx-font-weight:bold;-fx-text-fill: white;");
+		nextbtn.setPrefSize(180, 50);
+		
+		nextbtn.setOnMouseEntered(e -> {
+			nextbtn.setStyle("-fx-font-size:15;-fx-background-color:linear-gradient(#8e1c1c,#af2121);-fx-font-weight:bold;-fx-text-fill: white;");
+			nextbtn.setCursor(Cursor.HAND);
+		});
+		nextbtn.setOnMouseExited(e -> {
+			nextbtn.setStyle("-fx-font-size:15;-fx-background-color:#8e1c1c;-fx-font-weight:bold;-fx-text-fill: white;");
+		});
+		nextbtn.setOnAction(e -> {
+			//showOrari();
+			stage2.hide();
+			  try { 
+				  stage3.thirdstage(mainstage);
+			  } 
+			  catch (Exception e1){
+			  e1.printStackTrace();
+			  }
+			 
+			 
+			
+			//loginUser();
+		});
