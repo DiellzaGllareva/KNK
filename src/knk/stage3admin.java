@@ -194,3 +194,60 @@ public class stage3admin {
 		OrariTbl.setPrefHeight(200);
 		
 		// Main Pane
+		HBox mainPane = new HBox(10);
+		
+		mainPane.getChildren().addAll(leftPane, OrariTbl);
+		
+		mainPane.setPadding(new Insets(15, 15, 15 ,15));
+		
+		
+		Scene scene = new Scene(mainPane, 1000, 580);
+		
+		stage3admin.setTitle("Admin Stage");
+		stage3admin.setScene(scene);
+		
+		showOrari();
+		
+		stage3admin.show();
+	}
+	
+
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+	
+	public static void showOrari() {
+		List<Orari> orariL = Orari.getOrari();
+		
+		ObservableList<Orari> orariList = FXCollections.observableArrayList();
+		
+		for(int i = 0; i < orariL.size(); i++) {
+			orariList.add(orariL.get(i));
+		}
+		
+		OrariTbl.setItems(orariList);
+	}
+	
+	public static void insertOrari() {
+		
+		if(Orari.addOrari(subjectField.getText(),
+						  Integer.parseInt(ectsField.getText()),
+						  profField.getText(),
+						  assField.getText(),
+						  LditaField.getText(),
+						  LoraField.getText(),
+						  Integer.parseInt(LsallaField.getText()),
+						  UditaField.getText(),
+						  UoraField.getText(),
+						  Integer.parseInt(UsallaField.getText()),
+						  nstudField.getText(),
+						  departamentiField.getText(),
+						  semField.getText(),
+						  grupiField.getText()
+						  ))
+		{
+			showOrari();
+			clearOrari();
+		}
+	}
+	
