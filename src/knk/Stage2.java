@@ -167,3 +167,87 @@ public class Stage2 {
 			
 			//loginUser();
 		});
+					
+		gpane.add(nivelistud, 0, 0);
+		gpane.add(nstud,0,1);
+		gpane.add(depart, 1, 0);
+		gpane.add(departamenti, 1, 1);
+		gpane.add(semestri, 2, 0);
+		gpane.add(sem, 2, 1);
+		gpane.add(grupitext,3,0);
+		gpane.add(grupi,3,1);
+//		gpane.add(tipi, 4, 0);
+//		gpane.add(cmb4, 4, 1);
+		gpane.add(nextbtn, 6, 3);
+
+		
+		
+		bpane.setCenter(gpane);
+		Scene scene = new Scene(bpane);
+		
+		stage2.minWidthProperty().bind(gpane.minWidthProperty());
+		stage2.minHeightProperty().bind(gpane.minHeightProperty());
+		bpane.minWidthProperty().bind(stage2.minWidthProperty());
+		bpane.minHeightProperty().bind(stage2.minHeightProperty());
+		
+		stage2.setTitle("Sistemi Për Menaxhimin E Orarit Të Studentëve");
+		stage2.setScene(scene);
+		stage2.getIcons().add(new Image("/images/unipr.png"));
+		stage2.show();
+	}
+		
+		
+		public static List<Orari> merrOrarin() {
+			List<Orari> orariList = new ArrayList();
+			String dep=(String) departamenti.getValue();
+			String nvStud= (String)nstud.getValue();
+			String seme=(String) sem.getValue();
+			String gr=(String) grupi.getValue();
+			System.out.println(nvStud);
+			String query = "Select titlenda, ects, profcol, asscol, ldita, lora, lsalla, udita, uora, usalla from orari WHERE nstud=? and departamenti=? and sem=? and grupi=?";
+			
+			try {
+				PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+				preparedStatement.setString(1,nvStud);
+				  preparedStatement.setString(2, dep);
+				  preparedStatement.setString(3,seme);
+				  preparedStatement.setString(4,gr);
+				ResultSet resultSet = preparedStatement.executeQuery();
+				
+				while(resultSet.next()) {
+					Orari orari = new Orari(
+											0, resultSet.getString(1),
+											resultSet.getInt(2),
+											resultSet.getString(3),
+											resultSet.getString(4),
+											resultSet.getString(5),
+											resultSet.getString(6),
+											resultSet.getInt(7),
+											resultSet.getString(8),
+											resultSet.getString(9),
+											resultSet.getInt(10), null, null, null, null
+											);
+					orariList.add(orari);
+					
+				}
+				
+			} catch(SQLException ex) {
+				ex.printStackTrace();
+			}
+			
+			return orariList;
+		}
+		
+		public static ObservableList<Orari> showOrarin() {
+			List<Orari> orariL = merrOrarin();
+			
+			ObservableList<Orari> orariList = FXCollections.observableArrayList();
+			Stage3.table.getColumns().clear();
+			for(int i = 0; i < orariL.size(); i++) {
+				orariList.add(orariL.get(i));
+			}
+			return orariList;
+			//Stage3.shfaqVlerat(orariList);
+			//Stage3.Table.setItems(orariList);
+		}
+}
