@@ -251,3 +251,62 @@ public class stage3admin {
 		}
 	}
 	
+	public static void clearOrari() {
+		idField.setText("");
+		subjectField.setText("");
+		ectsField.setText("");
+		profField.setText("");
+		assField.setText("");
+		LditaField.setText("");
+		LoraField.setText("");
+		LsallaField.setText("");
+		UditaField.setText("");
+		UoraField.setText("");
+		UsallaField.setText("");
+		nstudField.setText("");
+		departamentiField.setText("");
+		semField.setText("");
+		grupiField.setText("");
+	}
+	public static boolean updateOrari(int id,String titlenda, int ects, String profcol, String asscol, String ldita, String lora, int lsalla, String udita, String uora, int usalla,String nstud, String departamenti, String sem, String grupi) {
+		System.out.println(id);
+		String query = "UPDATE orari SET titlenda=?, ects=?, profcol=?, asscol=?, ldita=?, lora=?, lsalla=?, udita=?, uora=?, usalla=?, nstud=?, departamenti=?, sem=?, grupi=? WHERE id=?";
+		
+		try {
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+			
+			preparedStatement.setString(1, titlenda);
+			preparedStatement.setInt(2, ects);
+			preparedStatement.setString(3, profcol);
+			preparedStatement.setString(4, asscol);
+			preparedStatement.setString(5, ldita);
+			preparedStatement.setString(6, lora);
+			preparedStatement.setInt(7, lsalla);
+			preparedStatement.setString(8, udita);
+			preparedStatement.setString(9, uora);
+			preparedStatement.setInt(10, usalla);
+			preparedStatement.setString(11, nstud);
+			preparedStatement.setString(12, departamenti);
+			preparedStatement.setString(13, sem);
+			preparedStatement.setString(14, grupi);
+			preparedStatement.setInt(15, id);
+			return (preparedStatement.executeUpdate() > 0);
+		} catch(SQLException ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	public static boolean deleteOrari(int id) {
+		String query = "Delete from orari where id=?";
+		
+		try {
+			PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement(query);
+			preparedStatement.setInt(1, id);
+			return (preparedStatement.executeUpdate() > 0);
+		} catch(SQLException ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+}
