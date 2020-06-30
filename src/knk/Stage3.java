@@ -50,18 +50,15 @@ public class Stage3 {
 		
 		//Kolona e pare me emertimet per permbajtjen e tabeles
 		private static TableColumn idcol = new TableColumn();
-		private static TableColumn titlenda = new TableColumn("TITULLI I LËNDËS");
+		private static TableColumn titlenda = new TableColumn("TITULLI I LENDES");
 		private static TableColumn ects = new TableColumn("ECTS");
-		private static TableColumn teacher = new TableColumn("MËSIMDHËNËSI");
+		private static TableColumn teacher = new TableColumn("MESIMDHENESI");
 		private static TableColumn profcol = new TableColumn("PROFESORI");
 		private static TableColumn asscol = new TableColumn("ASISTENTI");
-		
-		
-		private static TableColumn ligjeratacol = new TableColumn("LIGJËRATA");
+		private static TableColumn ligjeratacol = new TableColumn("LIGJERATA");
 		private static TableColumn ldita = new TableColumn("DITA");
 		private static TableColumn lora = new TableColumn("ORA");
 		private static TableColumn lsalla = new TableColumn("SALLA");
-		
 		private static TableColumn ushtrimecol = new TableColumn("USHTRIME");
 		private static TableColumn udita = new TableColumn("DITA");
 		private static TableColumn uora = new TableColumn("ORA");
@@ -187,7 +184,7 @@ public class Stage3 {
 				
 				bpane.minWidthProperty().bind(stage3.minWidthProperty());
 				bpane.minHeightProperty().bind(stage3.minHeightProperty());
-				stage3.setTitle("Sistemi P�r Menaxhimin E Orarit T� Student�ve");
+				stage3.setTitle("Sistemi Për Menaxhimin E Orarit Të Studentëve");
 				stage3.setScene(scene);
 				stage3.getIcons().add(new Image("/images/unipr.png"));
 				stage3.show();
