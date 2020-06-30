@@ -30,8 +30,8 @@ public class Login extends Application {
 	private TextField IDtxt = new TextField();
 	private PasswordField passwordTxt = new PasswordField();
 	public Stage mainStage;
-	private Button logInButton = new Button("Kyçu");
-	private Label resetpw = new Label("Keni harruar fjalëkalimin?");
+	private Button logInButton = new Button("Kycu");
+	private Label resetpw = new Label("Keni harruar fjalekalimin?");
 	private Label shqip = new Label("Shqip");
 	private Label english = new Label("English");
 	private Label help = new Label("Ndihma");
@@ -64,7 +64,7 @@ public class Login extends Application {
 		gridPane.add(logo, 1, 0);
 
 //RRESHTI PERDORUESI
-		Label ID = new Label("Përdoruesi:");
+		Label ID = new Label("Perdoruesi:");
 		ID.setStyle("-fx-font-size:15;");
 		IDtxt.setPromptText("ID");
 		IDtxt.setStyle("-fx-font-size:15;");
@@ -73,7 +73,7 @@ public class Login extends Application {
 		gridPane.add(IDtxt, 1, 1);
 
 //RRESHTI FJALEKALIMI
-		Label PW = new Label("Fjalëkalimi:");
+		Label PW = new Label("Fjalekalimi:");
 		PW.setStyle("-fx-font-size:15;");
 		passwordTxt.setStyle("-fx-font-size:15;");
 		passwordTxt.setMaxWidth(150);
@@ -163,14 +163,14 @@ public class Login extends Application {
 //NDRYSHIMI I GJUHES PAS SHTYPJES SE BUTONIT
 
 		shqip.setOnMousePressed(e -> {
-			logInButton.setText("Kyçu");
+			logInButton.setText("Kycu");
 			ID.setText("Perdoruesi: ");
-			PW.setText("Fjalëkalimi: ");
+			PW.setText("Fjalekalimi: ");
 			english.setText("Anglisht");
 			help.setText("Ndihme");
 			shqip.setText("Shqip");
-			resetpw.setText("Keni harruar fjalëkalimin?");
-			primaryStage.setTitle("Sistemi Për Menaxhimin E Orarit Të Studentëve");
+			resetpw.setText("Keni harruar fjalekalimin?");
+			primaryStage.setTitle("Sistemi Per Menaxhimin E Orarit Te Studenteve");
 		});
 
 		english.setOnMousePressed(e -> {
@@ -195,7 +195,7 @@ public class Login extends Application {
 		bpane.setCenter(gridPane);
 		Scene scene = new Scene(bpane);
 
-		primaryStage.setTitle("Sistemi Për Menaxhimin E Orarit Të Studentëve");
+		primaryStage.setTitle("Sistemi Per Menaxhimin E Orarit Te Studenteve");
 		primaryStage.setScene(scene);
 		primaryStage.minWidthProperty().bind(gridPane.minWidthProperty());
 		primaryStage.minHeightProperty().bind(gridPane.minHeightProperty());
