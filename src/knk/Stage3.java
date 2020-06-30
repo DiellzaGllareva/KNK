@@ -143,4 +143,66 @@ public class Stage3 {
 	    table.setItems( Stage2.showOrarin());
 		table.getColumns().addAll(titlenda, ects, teacher,ligjeratacol,ushtrimecol);
 		table.setEditable(false);
-	    
+		//BUTONI BACK DHE EVENT HANDLERS
+				HBox hbox = new HBox();
+				hbox.setPadding(new Insets(10,10,10,1));
+				hbox.getChildren().add(backbtn);
+				backbtn.setPrefHeight(30);
+				backbtn.setPrefWidth(70);
+				backbtn.setStyle("-fx-background-color:#8e1c1c;-fx-font-weight:bold;-fx-text-fill: white;");
+				
+				backbtn.setOnAction(e ->{
+					stage3.hide();
+				//	table.getColumns().clear();
+					//table.getItems().clear();
+					
+					
+					try {
+						Stage2.secondarystage(mainstage);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				});
+				backbtn.setOnMouseEntered(e ->{
+					backbtn.setStyle("-fx-background-color:linear-gradient(#8e1c1c,#af2121);-fx-font-weight:bold;-fx-text-fill: white;");
+					backbtn.setCursor(Cursor.HAND);
+				});
+				backbtn.setOnMouseExited(e -> {
+					backbtn.setStyle("-fx-background-color:#8e1c1c;-fx-font-weight:bold;-fx-text-fill: white;");
+				});
+				
+				
+				
+		//PANE KRYESORE,SCENE DHE STAGE
+				Insets tblinsets = new Insets (10,1,10,1);
+				bpane.setMargin(table, tblinsets);
+				bpane.setTop(hbox);
+				bpane.setCenter(table);
+				bpane.setMinHeight(400);
+				bpane.setMinWidth(835);
+
+				
+				Scene scene = new Scene(bpane,835,400);
+				
+				bpane.minWidthProperty().bind(stage3.minWidthProperty());
+				bpane.minHeightProperty().bind(stage3.minHeightProperty());
+				stage3.setTitle("Sistemi Për Menaxhimin E Orarit Të Studentëve");
+				stage3.setScene(scene);
+				stage3.getIcons().add(new Image("/images/unipr.png"));
+				stage3.show();
+				
+				
+			}
+				public static void shfaqVlerat(ObservableList<Orari> orariList) {
+					System.out.println(orariList);
+					table.setItems(orariList);
+				}
+				public static ObservableList<Orari> data(ObservableList<Orari> orariList) {
+					System.out.println(orariList);
+					table.setItems(orariList);
+					return orariList;
+				}
+
+				
+		}
