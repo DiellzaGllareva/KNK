@@ -133,7 +133,7 @@ public class Login extends Application {
 			help.setStyle("-fx-text-fill: BLACK;");
 		});
 		help.setOnMouseClicked(e -> {
-			if (logInButton.getText() == "Kyçu")
+			if (logInButton.getText() == "Kycu")
 				Help.ndihme();
 			else {
 				Help.help();
