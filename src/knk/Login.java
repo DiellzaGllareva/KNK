@@ -160,4 +160,58 @@ public class Login extends Application {
 			english.setStyle("-fx-text-fill: BLACK;");
 		});
 
-		
+//NDRYSHIMI I GJUHES PAS SHTYPJES SE BUTONIT
+
+		shqip.setOnMousePressed(e -> {
+			logInButton.setText("Kyçu");
+			ID.setText("Perdoruesi: ");
+			PW.setText("Fjalëkalimi: ");
+			english.setText("Anglisht");
+			help.setText("Ndihme");
+			shqip.setText("Shqip");
+			resetpw.setText("Keni harruar fjalëkalimin?");
+			primaryStage.setTitle("Sistemi Për Menaxhimin E Orarit Të Studentëve");
+		});
+
+		english.setOnMousePressed(e -> {
+			logInButton.setText("Login");
+			ID.setText("Username: ");
+			PW.setText("Password: ");
+			english.setText("English");
+			help.setText("Help");
+			shqip.setText("Albanian");
+			resetpw.setText("Forgot password?");
+			primaryStage.setTitle("Schedule Management Application");
+		});
+
+		HBox hboxhelp = new HBox(5);
+		hboxhelp.getChildren().add(help);
+		gridPane.add(hboxhelp, 0, 8);
+
+		HBox hbox = new HBox(5);
+		gridPane.add(hbox, 3, 8);
+		hbox.getChildren().addAll(shqip, english);
+
+		bpane.setCenter(gridPane);
+		Scene scene = new Scene(bpane);
+
+		primaryStage.setTitle("Sistemi Për Menaxhimin E Orarit Të Studentëve");
+		primaryStage.setScene(scene);
+		primaryStage.minWidthProperty().bind(gridPane.minWidthProperty());
+		primaryStage.minHeightProperty().bind(gridPane.minHeightProperty());
+		// primaryStage.setMinHeight(500);
+		// primaryStage.setResizable(false);
+		bpane.minWidthProperty().bind(primaryStage.minWidthProperty());
+		bpane.minHeightProperty().bind(primaryStage.minHeightProperty());
+
+		primaryStage.getIcons().add(new Image("/images/unipr.png"));
+		primaryStage.show();
+
+	}
+
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+
+	private void loginUser() {
+		String query = "Select * from users where numriid = ? AND password = ?";
