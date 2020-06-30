@@ -215,3 +215,83 @@ public class Login extends Application {
 
 	private void loginUser() {
 		String query = "Select * from users where numriid = ? AND password = ?";
+		try {
+			PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+
+			preparedStatement.setString(1, IDtxt.getText());
+			preparedStatement.setString(2, getMd5(passwordTxt.getText()));
+			ResultSet result = preparedStatement.executeQuery();
+			if (result.next()) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setResizable(false);
+				alert.setTitle("Kycja");
+				alert.setHeaderText(null);
+				alert.setContentText("Jeni kycur me sukses!");
+				alert.showAndWait();
+				mainStage.hide();
+				String usr = String.valueOf(IDtxt.getText());
+				BigInteger bi = new BigInteger(usr);
+				BigInteger one = new BigInteger("1");
+				int test = bi.compareTo(one);
+				if (test == 0) {
+					try {
+						stage3admin.adminStage(mainStage);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				} else {
+					try {
+						Stage2.secondarystage(mainStage);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+
+			else {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setResizable(false);
+				alert.setTitle("Kycja");
+				alert.setHeaderText(null);
+				alert.setContentText("Email ose password i gabuar!");
+				alert.showAndWait();
+			}
+
+		} catch (SQLException ex) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setResizable(false);
+			alert.setTitle("Problem gjate lidhjes me databaze!");
+			alert.setHeaderText(null);
+			alert.setContentText(ex.getMessage());
+			alert.showAndWait();
+			System.exit(0);
+		}
+	}
+
+	public static String getMd5(String input) {
+		try {
+
+			// Static getInstance method is called with hashing MD5
+			MessageDigest md = MessageDigest.getInstance("MD5");
+
+			// digest() method is called to calculate message digest
+			// of an input digest() return array of byte
+			byte[] messageDigest = md.digest(input.getBytes());
+
+			// Convert byte array into signum representation
+			BigInteger no = new BigInteger(1, messageDigest);
+
+			// Convert message digest into hex value
+			String hashtext = no.toString(16);
+			while (hashtext.length() < 32) {
+				hashtext = "0" + hashtext;
+			}
+			return hashtext;
+		}
+
+		// For specifying wrong message digest algorithms
+		catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
+}
