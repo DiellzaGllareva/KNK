@@ -1,4 +1,4 @@
-package projekti;
+package knk;
 
 import java.sql.*;
 
@@ -16,7 +16,7 @@ public class DBConnection {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				dbConnection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + dbName, username, password);
-				System.out.println("Databaza u konektua me sukses!");
+				
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
