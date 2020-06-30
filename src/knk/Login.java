@@ -71,4 +71,93 @@ public class Login extends Application {
 		IDtxt.setMaxWidth(150);
 		gridPane.add(ID, 0, 1);
 		gridPane.add(IDtxt, 1, 1);
-	
+
+//RRESHTI FJALEKALIMI
+		Label PW = new Label("Fjalëkalimi:");
+		PW.setStyle("-fx-font-size:15;");
+		passwordTxt.setStyle("-fx-font-size:15;");
+		passwordTxt.setMaxWidth(150);
+		gridPane.add(PW, 0, 2);
+		gridPane.add(passwordTxt, 1, 2);
+
+//LOGIN BUTTON
+		logInButton.setPrefWidth(150);
+		logInButton.setStyle("-fx-background-color:#8e1c1c;-fx-font-weight:bold;-fx-text-fill: white;");
+		gridPane.add(logInButton, 1, 3);
+
+		/*
+		 * logInButton.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		 * 
+		 * @Override public void handle(KeyEvent event) { if (event.getCode() ==
+		 * KeyCode.ENTER) { System.out.println("Enter Pressed"); } } });
+		 */
+		logInButton.setDefaultButton(true);
+
+		logInButton.setOnAction(e -> {
+			loginUser();
+		});
+
+		logInButton.setOnMouseEntered(e -> {
+			logInButton.setStyle(
+					"-fx-background-color:linear-gradient(#8e1c1c,#af2121);-fx-font-weight:bold;-fx-text-fill: white;");
+			logInButton.setCursor(Cursor.HAND);
+		});
+		logInButton.setOnMouseExited(e -> {
+			logInButton.setStyle("-fx-background-color:#8e1c1c;-fx-font-weight:bold;-fx-text-fill: white;");
+		});
+
+//RRESHTI RESET PASSWORD 
+
+		resetpw.setUnderline(true);
+		gridPane.add(resetpw, 1, 4);
+
+		resetpw.setOnMouseClicked(e -> {
+			getHostServices().showDocument("https://notimi.uni-pr.edu/ResetPassword");
+		});
+		resetpw.setOnMouseEntered(e -> {
+			resetpw.setCursor(Cursor.HAND);
+			resetpw.setStyle("-fx-text-fill:#840000;");
+		});
+		resetpw.setOnMouseExited(e -> {
+			resetpw.setStyle("-fx-text-fill: BLACK;");
+		});
+
+// HELP MENU 
+		help.setAlignment(Pos.CENTER_LEFT);
+		help.setUnderline(true);
+		help.setOnMouseEntered(e -> {
+			help.setCursor(Cursor.HAND);
+			help.setStyle("-fx-text-fill:#840000;");
+		});
+		help.setOnMouseExited(e -> {
+			help.setStyle("-fx-text-fill: BLACK;");
+		});
+		help.setOnMouseClicked(e -> {
+			if (logInButton.getText() == "Kyçu")
+				Help.ndihme();
+			else {
+				Help.help();
+			}
+		});
+
+// BUTONI PER GJUHEN SHQIPE 	
+		shqip.setUnderline(true);
+		shqip.setOnMouseEntered(e -> {
+			shqip.setCursor(Cursor.HAND);
+			shqip.setStyle("-fx-text-fill:#840000;");
+		});
+		shqip.setOnMouseExited(e -> {
+			shqip.setStyle("-fx-text-fill: BLACK;");
+		});
+
+//BUTONI PER GJUHEN ANGLEZE
+		english.setUnderline(true);
+		english.setOnMouseEntered(e -> {
+			english.setCursor(Cursor.HAND);
+			english.setStyle("-fx-text-fill:#840000;");
+		});
+		english.setOnMouseExited(e -> {
+			english.setStyle("-fx-text-fill: BLACK;");
+		});
+
+		
