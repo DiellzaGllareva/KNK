@@ -89,7 +89,14 @@ public class stage3admin {
 		buttonsPane.getChildren().addAll(insertBtn, updateBtn, deleteBtn, clearBtn,logoutBtn);
 		
 		logoutBtn.setOnAction(e ->{
-			stage3admin.close();
+			Login l=new Login();
+			try {
+				stage3admin.close();
+				l.start(primaryStage);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		
 		});
 		
